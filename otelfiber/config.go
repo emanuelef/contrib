@@ -15,6 +15,7 @@ type config struct {
 	Propagators       propagation.TextMapPropagator
 	ServerName        *string
 	SpanNameFormatter func(*fiber.Ctx) string
+	SkipURIs          []string
 }
 
 // Option specifies instrumentation configuration options.
@@ -75,5 +76,12 @@ func WithServerName(serverName string) Option {
 func WithPort(port int) Option {
 	return optionFunc(func(cfg *config) {
 		cfg.Port = &port
+	})
+}
+
+// WithSkipURIs specifies the uris to exclude
+func WithSkipURIs(uris []string) Option {
+	return optionFunc(func(cfg *config) {
+		cfg.SkipURIs = uris
 	})
 }
