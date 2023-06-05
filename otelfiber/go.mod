@@ -1,4 +1,4 @@
-module github.com/gofiber/contrib/otelfiber
+module github.com/emanuelef/contrib/otelfiber
 
 go 1.18
 
